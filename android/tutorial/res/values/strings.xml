@@ -2,4 +2,5 @@
 <resources>
     <string name="hello">Hello World, AndroidTutorialActivity!</string>
     <string name="app_name">Android Tutorial</string>
+    <string name="lovesEP">loves EP</string>
 </resources>

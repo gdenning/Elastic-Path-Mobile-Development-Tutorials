@@ -9,6 +9,10 @@
 ######################
 *.log
 
+# Eclipse Preferences #
+#######################
+*.prefs
+
 # OS generated files #
 ######################
 .DS_Store?
