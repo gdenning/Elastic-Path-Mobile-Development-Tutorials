@@ -7,12 +7,16 @@
 		android:layout_alignParentTop="true" android:layout_alignParentLeft="true"></TextView>
 	<EditText android:layout_height="wrap_content" android:id="@+id/nameEdit"
 		android:layout_below="@+id/helloText" android:layout_alignParentLeft="true"
-		android:layout_width="200dp">
+		android:layout_width="125dp">
 		<requestFocus></requestFocus>
 	</EditText>
-	<Button android:layout_height="wrap_content" android:id="@+id/lovesEPButton"
-		android:layout_below="@+id/helloText" android:layout_toRightOf="@+id/nameEdit"
-		android:layout_width="match_parent" android:text="@string/lovesEP"></Button>
+	<Spinner android:layout_height="wrap_content" android:id="@+id/verbSpinner"
+		android:layout_alignTop="@+id/nameEdit" android:layout_toRightOf="@+id/nameEdit"
+		android:layout_width="100dp" android:entries="@array/verbs"></Spinner>
+	<Button android:layout_width="match_parent"
+		android:layout_height="wrap_content" android:id="@+id/lovesEPButton"
+		android:text="@string/lovesEP" android:layout_below="@+id/helloText"
+		android:layout_toRightOf="@+id/verbSpinner"></Button>
 	<ListView android:layout_width="match_parent"
 		android:layout_below="@+id/nameEdit" android:layout_alignParentLeft="true"
 		android:layout_height="match_parent" android:id="@+id/developersList"></ListView>

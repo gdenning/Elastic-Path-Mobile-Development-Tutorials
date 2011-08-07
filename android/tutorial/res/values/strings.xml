@@ -3,4 +3,9 @@
     <string name="hello">Hello World, AndroidTutorialActivity!</string>
     <string name="app_name">Android Tutorial</string>
     <string name="lovesEP">loves EP</string>
+    <string-array name="verbs">
+        <item>loves</item>
+        <item>likes</item>
+        <item>wants to work at</item>
+    </string-array>
 </resources>
