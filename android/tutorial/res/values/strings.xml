@@ -2,7 +2,6 @@
 <resources>
     <string name="hello">Hello World, AndroidTutorialActivity!</string>
     <string name="app_name">Android Tutorial</string>
-    <string name="lovesEP">loves EP</string>
     <string-array name="verbs">
         <item>loves</item>
         <item>likes</item>
@@ -11,4 +10,5 @@
         <string name="selectContact">Select Contact</string>
         <string name="developer">Developer</string>
         <string name="verb">Verb</string>
+        <string name="EP">EP</string>
 </resources>

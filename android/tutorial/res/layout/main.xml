@@ -15,8 +15,8 @@
 		android:layout_width="100dp" android:entries="@array/verbs"></Spinner>
 	<Button android:layout_width="match_parent"
 		android:layout_height="wrap_content" android:id="@+id/lovesEPButton"
-		android:text="@string/lovesEP" android:layout_below="@+id/helloText"
-		android:layout_toRightOf="@+id/verbSpinner"></Button>
+		android:layout_below="@+id/helloText"
+		android:layout_toRightOf="@+id/verbSpinner" android:text="@string/EP"></Button>
 	<ListView android:layout_width="match_parent"
 		android:layout_below="@+id/nameEdit" android:layout_alignParentLeft="true"
 		android:layout_height="match_parent" android:id="@+id/developersList"></ListView>
