@@ -8,4 +8,5 @@
         <item>likes</item>
         <item>wants to work at</item>
     </string-array>
+        <string name="selectContact">Select Contact</string>
 </resources>
