@@ -13,4 +13,7 @@
 	<Button android:layout_height="wrap_content" android:id="@+id/lovesEPButton"
 		android:layout_below="@+id/helloText" android:layout_toRightOf="@+id/nameEdit"
 		android:layout_width="match_parent" android:text="@string/lovesEP"></Button>
+	<ListView android:layout_width="match_parent"
+		android:layout_below="@+id/nameEdit" android:layout_alignParentLeft="true"
+		android:layout_height="match_parent" android:id="@+id/developersList"></ListView>
 </RelativeLayout>
