@@ -1,0 +1,17 @@
+# Compiled source #
+###################
+*.class
+*.apk
+*.dex
+*.ap_
+
+# Logs #
+######################
+*.log
+
+# OS generated files #
+######################
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db
