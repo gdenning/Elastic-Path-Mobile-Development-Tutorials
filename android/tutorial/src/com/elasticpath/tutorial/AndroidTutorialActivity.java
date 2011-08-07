@@ -5,7 +5,9 @@ import java.util.List;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.app.NotificationManager;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -23,10 +25,13 @@ import android.widget.TextView;
 import com.elasticpath.tutorial.adapters.MainListAdapter;
 import com.elasticpath.tutorial.dtos.DeveloperDTO;
 import com.elasticpath.tutorial.helpers.DownloadFileHelper;
+import com.elasticpath.tutorial.helpers.NotificationHelper;
 
 public class AndroidTutorialActivity extends Activity {
 	private static final int PROGRESS_DIALOG = 0;
 	private static final int PICK_CONTACT_REQUEST = 0;
+	
+	private NotificationManager notificationManager;
 
 	private TextView helloTextView;
 	private EditText nameEditText;
@@ -42,6 +47,8 @@ public class AndroidTutorialActivity extends Activity {
 	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+		
+		notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
 		helloTextView = (TextView) findViewById(R.id.helloText);
 		nameEditText = (EditText) findViewById(R.id.nameEdit);
@@ -62,7 +69,8 @@ public class AndroidTutorialActivity extends Activity {
 						(String) verbSpinner.getSelectedItem());
 				developers.add(developerDTO);
 				listAdapter.notifyDataSetChanged();
-				new DownloadFileTask().execute("http://dl.dropbox.com/u/132371/Staff%20Meeting%20Slides%20Example.pptx");
+				NotificationHelper.showNotification(notificationManager, AndroidTutorialActivity.this, developerDTO);
+//				new DownloadFileTask().execute("http://dl.dropbox.com/u/132371/Staff%20Meeting%20Slides%20Example.pptx");
 			}
 		});
 	}

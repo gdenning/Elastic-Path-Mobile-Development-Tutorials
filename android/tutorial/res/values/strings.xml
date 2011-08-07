@@ -9,4 +9,6 @@
         <item>wants to work at</item>
     </string-array>
         <string name="selectContact">Select Contact</string>
+        <string name="developer">Developer</string>
+        <string name="verb">Verb</string>
 </resources>

@@ -1,6 +1,8 @@
 package com.elasticpath.tutorial.dtos;
 
-public class DeveloperDTO {
+import java.io.Serializable;
+
+public class DeveloperDTO implements Serializable {
 	private String name;
 	private String verb;
 
