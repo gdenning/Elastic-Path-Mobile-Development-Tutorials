@@ -9,9 +9,11 @@ import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -32,7 +34,8 @@ import com.elasticpath.tutorial.helpers.NotificationHelper;
 public class AndroidTutorialActivity extends Activity {
 	private static final int PROGRESS_DIALOG = 0;
 	private static final int PICK_CONTACT_REQUEST = 0;
-	
+
+	private SharedPreferences preferences;
 	private NotificationManager notificationManager;
 
 	private TextView helloTextView;
@@ -49,7 +52,8 @@ public class AndroidTutorialActivity extends Activity {
 	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		
+
+		preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
 		helloTextView = (TextView) findViewById(R.id.helloText);
@@ -62,7 +66,6 @@ public class AndroidTutorialActivity extends Activity {
 				developers, getLayoutInflater());
 		listView.setAdapter(listAdapter);
 
-		helloTextView.setText("Hello mobile developers!");
 		lovesEPButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(final View v) {
@@ -72,6 +75,12 @@ public class AndroidTutorialActivity extends Activity {
 				addDeveloperToList(developerDTO);
 			}
 		});
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		helloTextView.setText(preferences.getString("CAPTION", "Hello mobile developers!"));
 	}
 
 	@Override
@@ -93,6 +102,9 @@ public class AndroidTutorialActivity extends Activity {
 		case R.id.test:
 			final DeveloperDTO developerDTO = new DeveloperDTO("Test", "loves");
 			addDeveloperToList(developerDTO);
+			return true;
+		case R.id.settings:
+			launchSettingsActivity();
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
@@ -122,12 +134,19 @@ public class AndroidTutorialActivity extends Activity {
 			}
 		}
 	}
-	
+
 	private void addDeveloperToList(final DeveloperDTO developerDTO) {
 		developers.add(developerDTO);
 		listAdapter.notifyDataSetChanged();
-		NotificationHelper.showNotification(notificationManager, AndroidTutorialActivity.this, developerDTO);
+		if (preferences.getBoolean("SHOW_NOTIFICATIONS", true) == true) {
+			NotificationHelper.showNotification(notificationManager, AndroidTutorialActivity.this, developerDTO);
+		}
 		//new DownloadFileTask().execute("http://dl.dropbox.com/u/132371/Staff%20Meeting%20Slides%20Example.pptx");
+	}
+
+	private void launchSettingsActivity() {
+		final Intent i = new Intent(this, SettingsActivity.class);
+		startActivity(i);
 	}
 
 	class DownloadFileTask extends AsyncTask<String, Void, Void> {

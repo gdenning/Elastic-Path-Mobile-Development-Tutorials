@@ -3,5 +3,6 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/selectContact" android:title="@string/selectContact"></item>
     <item android:id="@+id/test" android:title="Test"></item>
+    <item android:title="Settings" android:id="@+id/settings"></item>
     
 </menu>

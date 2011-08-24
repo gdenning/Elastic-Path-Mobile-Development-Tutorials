@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference android:dialogTitle="Caption" android:title="Caption" android:key="CAPTION" android:defaultValue="Hello Android Developers!"></EditTextPreference>
+    <CheckBoxPreference android:title="Show Notifications" android:key="SHOW_NOTIFICATIONS" android:defaultValue="true"></CheckBoxPreference>
+    
+</PreferenceScreen>
